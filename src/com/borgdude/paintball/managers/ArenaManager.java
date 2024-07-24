@@ -66,7 +66,7 @@ public class ArenaManager {
         player.getInventory().clear();
         player.setExp(0);
         player.setLevel(0);
-        a.setGunKit(player, paintballManager.getGunByName("Sniper"));
+        a.setGunKit(player, paintballManager.getGunByName("Rifle"));
         player.sendMessage(plugin.getLanguageManager().getMessage("Join.Success").replace("%title%", a.getTitle()));
         a.addLobbyItems(player);
 

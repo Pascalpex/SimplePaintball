@@ -229,7 +229,7 @@ public class Arena {
 
         updateSigns();
 
-        System.out.println(title.equalsIgnoreCase("title"));
+        //System.out.println(title.equalsIgnoreCase("title"));
         if (title.equalsIgnoreCase("title") || getPlayers().size() >= getMinPlayers()) {
 
             Bukkit.getConsoleSender().sendMessage("Starting arena " + getTitle());
@@ -515,10 +515,10 @@ public class Arena {
             p.setLevel(0);
 
             List<Team> teamsToPlaceOn = getLowestMemberTeams();
-            System.out.println("Teams:");
-            for (Team t : teamsToPlaceOn) {
-                System.out.println("\t" + t.getName());
-            }
+            /*System.out.println("Teams:");
+            //for (Team t : teamsToPlaceOn) {
+            //    System.out.println("\t" + t.getName());
+            }*/
             Collections.shuffle(teamsToPlaceOn);
             Team t = teamsToPlaceOn.get(random.nextInt(teamsToPlaceOn.size()));
             team = t.getName();

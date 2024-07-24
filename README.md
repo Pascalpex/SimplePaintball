@@ -26,8 +26,8 @@ and wool blocks. Players can right click on those blocks in order to either leav
 * Sniper : Shoots straight, no drop
 * Rocket Launcher : On impact, multiple snowballs fire out for area damage
 * Shotgun : 3 snowballs fire out
-* Minigun : Highfire rate with little accuracy
-* Admin : Firerate of minigun with accuracy of sniper. Lightning strikes when a player is in the arena. Player holding the gun does not 
+* Rifle : Faster than sniper, but slower and less accurate
+* Admin : Extreme firerate with accuracy of sniper. Lightning strikes when a player is in the arena. Player holding the gun does not 
 have to be part of arena
 
 ## Building

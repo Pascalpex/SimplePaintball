@@ -12,7 +12,6 @@ import com.borgdude.paintball.utils.LoggerUtil;
 import net.milkbowl.vault.economy.Economy;
 
 import org.bstats.bukkit.Metrics;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -21,12 +20,9 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main extends JavaPlugin {
@@ -78,7 +74,7 @@ public class Main extends JavaPlugin {
         paintballManager.registerGun(new Admin(this));
         paintballManager.registerGun(new Sniper(this));
         paintballManager.registerGun(new Rocket(this));
-        paintballManager.registerGun(new Minigun(this));
+        paintballManager.registerGun(new Rifle(this));
         paintballManager.registerGun(new Shotgun());
         getServer().getServicesManager().register(PaintballManager.class, this.paintballManager, this, ServicePriority.Normal);
         arenaManager = new ArenaManager(new HashMap<>(), this);
