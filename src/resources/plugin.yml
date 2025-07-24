@@ -1,4 +1,6 @@
-author: Borgdude
+authors:
+  - Borgdude
+  - Pascalpex
 description: "Simple Paintball"
 main: com.borgdude.paintball.Main
 name: Simple_PaintBall

@@ -54,7 +54,7 @@ public class ArenaManager {
         if (a.getArenaState() == ArenaState.IN_GAME || a.getArenaState() == ArenaState.RESTARTING
                 || a.getArenaState() == ArenaState.ENDING) {
             player.sendMessage(
-                    plugin.getLanguageManager().getMessage("Join.Arena-In-Game".replace("%title%", a.getTitle())));
+                    plugin.getLanguageManager().getMessage("Join.Arena-In-Game").replace("%title%", a.getTitle()));
             return;
         }
 
