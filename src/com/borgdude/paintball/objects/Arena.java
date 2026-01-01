@@ -7,7 +7,8 @@ import com.borgdude.paintball.utils.PaintballPlayer;
 
 import net.milkbowl.vault.economy.EconomyResponse;
 
-import org.bstats.bukkit.Metrics;
+import org.bstats.charts.AdvancedPie;
+import org.bstats.charts.SingleLineChart;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
@@ -146,6 +147,7 @@ public class Arena {
 
     public void setArenaState(ArenaState arenaState) {
         this.arenaState = arenaState;
+        plugin.getJoinInventory().buildArenaItem(this);
     }
 
     public int getTimer() {
@@ -401,7 +403,7 @@ public class Arena {
     }
 
     private void addMetrics() {
-        Main.metrics.addCustomChart(new Metrics.SingleLineChart("games_played", () -> {
+        Main.metrics.addCustomChart(new SingleLineChart("games_played", () -> {
             return 1;
         }));
     }
@@ -827,7 +829,7 @@ public class Arena {
 
         removeBossbar();
 
-        Main.metrics.addCustomChart(new Metrics.AdvancedPie("guns_used", new Callable<Map<String, Integer>>() {
+        Main.metrics.addCustomChart(new AdvancedPie("guns_used", new Callable<Map<String, Integer>>() {
 
             @Override
             public Map<String, Integer> call() throws Exception {

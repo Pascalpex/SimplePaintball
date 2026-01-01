@@ -8,6 +8,7 @@ import com.borgdude.paintball.managers.*;
 import com.borgdude.paintball.objects.Arena;
 import com.borgdude.paintball.objects.guns.*;
 
+import com.borgdude.paintball.utils.JoinInventory;
 import com.borgdude.paintball.utils.LoggerUtil;
 import net.milkbowl.vault.economy.Economy;
 
@@ -31,6 +32,7 @@ public class Main extends JavaPlugin {
     private ArenaManager arenaManager;
     private PaintballManager paintballManager;
     private InventoryManager inventoryManager;
+    private JoinInventory joinInventory;
 
     private LanguageManager languageManager;
 
@@ -46,7 +48,7 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
-        metrics = new Metrics(this);
+        metrics = new Metrics(this, 3021);
         logger = new LoggerUtil(this);
         try {
             createCustomConfigs();
@@ -79,6 +81,9 @@ public class Main extends JavaPlugin {
         getServer().getServicesManager().register(PaintballManager.class, this.paintballManager, this, ServicePriority.Normal);
         arenaManager = new ArenaManager(new HashMap<>(), this);
         arenaManager.getArenas();
+
+        joinInventory = new JoinInventory(this);
+
         getCommand("gun").setExecutor(new GunCommand(this));
         getCommand("pb").setExecutor(new PaintballCommand(this));
         getCommand("pb").setTabCompleter(new PaintballCompleter(this));
@@ -103,6 +108,10 @@ public class Main extends JavaPlugin {
 
     public LanguageManager getLanguageManager() {
         return this.languageManager;
+    }
+
+    public JoinInventory getJoinInventory() {
+        return this.joinInventory;
     }
 
     private void createCustomConfigs() throws FileNotFoundException, IOException, InvalidConfigurationException {

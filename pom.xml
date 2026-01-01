@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>SimplePaintball</groupId>
 	<artifactId>SimplePaintball</artifactId>
-	<version>0.4.2</version>
+	<version>0.5.1</version>
 	<name>SimplePaintball</name>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -18,7 +18,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
-				<version>3.6.0</version>
+				<version>3.6.1</version>
 				<configuration>
 					<relocations>
 						<relocation>
@@ -38,7 +38,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.14.0</version>
+				<version>3.14.1</version>
 				<configuration>
 					<source>21</source>
 					<target>21</target>
@@ -52,38 +52,41 @@
 	</organization>
 	<repositories>
 		<repository>
-			<id>spigot-repo</id>
-			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
 		</repository>
 		<repository>
 			<id>CodeMC</id>
 			<url>https://repo.codemc.org/repository/maven-public</url>
 		</repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
 	</repositories>
 	<dependencies>
-		<!--Spigot API -->
-		<dependency>
-			<groupId>org.spigotmc</groupId>
-			<artifactId>spigot-api</artifactId>
-			<version>1.21.8-R0.1-SNAPSHOT</version>
-			<scope>provided</scope>
-		</dependency>
-		<!--Bukkit API -->
+		<!--Paper API -->
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.21.11-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.18.0</version>
+			<version>3.20.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bstats</groupId>
 			<artifactId>bstats-bukkit</artifactId>
-			<version>1.5</version>
+			<version>3.1.0</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>net.milkbowl.vault</groupId>
+            <groupId>com.github.MilkBowl</groupId>
 			<artifactId>VaultAPI</artifactId>
-			<version>1.7</version>
+			<version>1.7.1</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

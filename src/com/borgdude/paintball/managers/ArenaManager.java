@@ -72,6 +72,7 @@ public class ArenaManager {
 
         a.checkToStart();
 
+        plugin.getJoinInventory().buildArenaItem(a);
     }
 
     public void addSpectatorToArena(Player player, Arena a) {
@@ -112,9 +113,9 @@ public class ArenaManager {
             a.removePlayerInGame(player);
         } else {
             a.removePlayer(player);
-            return;
         }
 
+        plugin.getJoinInventory().buildArenaItem(a);
     }
 
     public boolean removeSpectatorFromArena(Player player) {

@@ -250,6 +250,7 @@ public class PaintballCommand implements CommandExecutor {
                         Main.plugin.reloadConfig();
                         plugin.getArenaManager().getArenas();
                         plugin.getArenaManager().saveArenas();
+                        plugin.getJoinInventory().buildArenaSelector();
                         player.sendMessage(ChatColor.YELLOW + "Reload finished.");
                         return true;
                     } else if (args[0].equalsIgnoreCase("info")) {
@@ -285,7 +286,7 @@ public class PaintballCommand implements CommandExecutor {
 
                 if (args[0].equalsIgnoreCase("join")) {
                     if (args.length < 2 || args[1].length() < 2) {
-                        player.sendMessage(ChatColor.RED + "Usage: /pb join <title>");
+                        plugin.getJoinInventory().openArenaSelector(player);
                         return true;
                     }
 

@@ -4,6 +4,7 @@ import com.borgdude.paintball.Main;
 import com.borgdude.paintball.managers.ArenaManager;
 import com.borgdude.paintball.managers.PaintballManager;
 import com.borgdude.paintball.objects.*;
+import com.borgdude.paintball.utils.JoinInventory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -27,6 +28,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -160,11 +162,22 @@ public class EventClass implements Listener {
 
         Arena arena = this.arenaManager.getPlayerArena(player);
 
-        if (arena == null)
-            return;
-        else {
+        if (arena != null) {
             event.setCancelled(true);
         }
+
+        Inventory inventory = event.getClickedInventory();
+        if(inventory != null && plugin.getJoinInventory().isArenaSelector(inventory)) {
+            event.setCancelled(true);
+            ItemStack clickedItem = event.getCurrentItem();
+            if(clickedItem != null && !clickedItem.getType().isAir()) {
+                if(JoinInventory.ARENA_MATERIALS.contains(clickedItem.getType())) {
+                    Arena clickedArena = plugin.getArenaManager().getActivatedArenas().get(event.getSlot() - 10);
+                    Bukkit.dispatchCommand(player, "pb join " + clickedArena.getTitle());
+                }
+            }
+        }
+
     }
 
     @EventHandler
