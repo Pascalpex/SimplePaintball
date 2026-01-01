@@ -174,6 +174,7 @@ public class EventClass implements Listener {
                 if(JoinInventory.ARENA_MATERIALS.contains(clickedItem.getType())) {
                     Arena clickedArena = plugin.getArenaManager().getActivatedArenas().get(event.getSlot() - 10);
                     Bukkit.dispatchCommand(player, "pb join " + clickedArena.getTitle());
+                    player.closeInventory();
                 }
             }
         }

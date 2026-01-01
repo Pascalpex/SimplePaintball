@@ -4,7 +4,7 @@
   <groupId>SimplePaintball</groupId>
   <artifactId>SimplePaintball</artifactId>
   <name>SimplePaintball</name>
-  <version>0.5.1</version>
+  <version>0.5.2</version>
   <organization>
     <name>Jake Gutierrez</name>
     <url>jakerg.me</url>
@@ -44,6 +44,17 @@
         <configuration>
           <source>21</source>
           <target>21</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.5.0</version>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <paperweight-mappings-namespace>mojang</paperweight-mappings-namespace>
+            </manifestEntries>
+          </archive>
         </configuration>
       </plugin>
     </plugins>
